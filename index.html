@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSINT Website</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" class="logo" alt="logo">
+    <span class="brand-name">OSINT WEBSITE</span>
+  </div>
+
+  <!-- GLOBAL SEARCH -->
+  <input
+    type="text"
+    id="globalSearch"
+    class="search-bar"
+    placeholder="Search OSINT tools..."
+  >
+</header>
+
+<main class="main-content">
+
+  <section class="hero">
+    <h1>Welcome to <span>OSINT WEBSITE</span></h1>
+    <p>Your pit-stop to all OSINT tools</p>
+  </section>
+
+  <!-- FILTER PANEL -->
+  <section class="filter-panel">
+    <h2 class="section-heading">Filter Tools</h2>
+
+    <div class="filter-grid">
+
+      <div class="filter-group">
+        <h3>Category</h3>
+        <select id="categorySelect">
+          <option value="">Any</option>
+          <option value="person">Person</option>
+          <option value="phone">Phone</option>
+          <option value="social">Social</option>
+          <option value="image">Image</option>
+          <option value="transport">Transport</option>
+          <option value="threat">Dark Web</option>
+          <option value="misc">Others</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <h3>Price</h3>
+        <select id="priceSelect">
+          <option value="">Any</option>
+          <option value="Open-Source">Open-Source</option>
+          <option value="Freemium">Freemium</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </div>
+
+    </div>
+
+    <button id="applyFilters" class="filter-btn">
+      Apply Filters
+    </button>
+  </section>
+
+</main>
+
+<footer class="footer">
+  © 2026 OSINT Arsenal
+</footer>
+
+<script>
+  // FILTER BUTTON → tools.html
+  document.getElementById("applyFilters").addEventListener("click", function () {
+    const category = document.getElementById("categorySelect").value;
+    const price = document.getElementById("priceSelect").value;
+    const search = document.getElementById("globalSearch").value.trim();
+
+    const params = [];
+
+    if (category) params.push(`category=${encodeURIComponent(category)}`);
+    if (price) params.push(`price=${encodeURIComponent(price)}`);
+    if (search) params.push(`q=${encodeURIComponent(search)}`);
+
+    window.location.href =`tools.html${params.length ? "?" + params.join("&") : ""}`;
+  });
+
+  // ENTER KEY SEARCH → tools-search.html
+  document.getElementById("globalSearch").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const query = this.value.trim();
+      if (!query) return;
+
+      window.location.href =
+        `tools-search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+</script>
+
+</body>
+</html>

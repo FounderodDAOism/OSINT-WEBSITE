@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSINT Website – Search</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="logo.png" class="logo" alt="logo">
+    <span class="brand-name">OSINT WEBSITE</span>
+  </div>
+
+  <input
+    type="text"
+    id="globalSearch"
+    class="search-bar"
+    placeholder="Search OSINT tools..."
+  >
+
+  <a href="index.html" class="back-link">← Home</a>
+</header>
+
+<main class="main-content">
+  <h1 id="pageTitle"></h1>
+  <div id="toolsGrid" class="grid"></div>
+</main>
+
+<footer class="footer">Search results</footer>
+
+<!-- ORDER IS CRITICAL -->
+<script src="tools-data.js"></script>
+<script src="tools-search.js"></script>
+<script>
+  document.getElementById("globalSearch").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      const query = this.value.trim();
+      if (!query) return;
+
+      window.location.href =
+        `tools-search.html?q=${encodeURIComponent(query)}`;
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* ============================
+   Global Reset & Base
+============================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0f1117;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* ============================
+   Header
+============================ */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: #0f1117;
+  border-bottom: 1px solid #1f2933;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+}
+
+.brand-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #60a5fa;
+}
+
+/* ============================
+   Main Content
+============================ */
+.main-content {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 30px;
+}
+
+/* ============================
+   Hero Section
+============================ */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.hero h1 span {
+  color: #60a5fa;
+}
+
+.hero p {
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+/* ============================
+   Footer
+============================ */
+.footer {
+  border-top: 1px solid #1f2933;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: auto;
+}
